@@ -46,10 +46,27 @@ function App() {
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
+        searchText={searchValue}
+        totalTodos={totalTodos}
         onError={() => <TodosError />}
         onLoading={() => <TodosLoading />}
         onEmptyTodos={() => <EmptyTodos />}
-        render={(todo) => (
+        onEmptySearchResults={(searchValue) => (
+          <p>No hay resultados para {searchValue}</p>
+        )}
+        // SI USAMOS RENDER PROPS
+        // render={todo => (
+        //   <TodoItem
+        //     key={todo.text}
+        //     text={todo.text}
+        //     completed={todo.completed}
+        //     onComplete={() => completeTodo(todo.text)}
+        //     onDelete={() => deleteTodo(todo.text)}
+        //   />
+        // )}
+      >
+        {/* SI USAMOS RENDER FUNCTIONS*/}
+        {(todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -58,7 +75,7 @@ function App() {
             onDelete={() => deleteTodo(todo.text)}
           />
         )}
-      />
+      </TodoList>
 
       {!!openModal && (
         <Modal>
