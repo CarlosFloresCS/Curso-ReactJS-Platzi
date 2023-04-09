@@ -66,22 +66,4 @@ function App() {
   );
 }
 
-function TodoHeader({ children }) {
-  return <header>{children}</header>;
-}
-
-function TodoList({ children }) {
-  return <section className="TodoList-container">{children}</section>;
-}
-
-function TodoCounter() {
-  return <p>TodoCounter</p>;
-}
-function TodoSearch() {
-  return <p>TodoSearch</p>;
-}
-function TodoItem({ state }) {
-  return <p>TodoItem: {state}</p>;
-}
-
 export default App;
